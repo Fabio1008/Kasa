@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './pages/home/Home';
+import Error from './pages/Error404/error404';
+import About from './pages/about/About';
+import FicheLogement from './pages/FicheLogement/ficheLogement';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+	{
+		path: "/Kasa/",
+		element: <Home />
+	},
+	{
+		path: "/ficheLogement/:id",
+		element: <FicheLogement />
+	},
+	{
+		path: '/about',
+		element: <About />
+	},
+	{
+		path: "*",
+		element: <Error />
+	},
+]);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<RouterProvider router={router}/>
+		</>
+	);
 }
 
 export default App;
