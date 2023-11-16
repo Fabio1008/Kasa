@@ -63,6 +63,14 @@ export default function FicheLogement() {
 						</div>
 					</div>
 				</div>
+				<div className="ficheLogement_collapse">
+					<div className="ficheLogement_collapse_item">
+						<Collapse title={'Description'} content={description} />	
+					</div>
+					<div className="ficheLogement_collapse_item">
+						<Collapse title={'Équipements'} content={equipments}/>
+					</div>	
+				</div>
 			</main>
 			<Footer/>
 		</>
