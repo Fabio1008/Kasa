@@ -28,6 +28,44 @@
             transform: rotate(180deg);
         }
     }
-   
+    &_content{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        letter-spacing: 1px;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        padding: 10px;
+        letter-spacing: 1px;
+        font-size: clamp(12px, 2vw, 16px);
+        color: $color-secondary;
+        transition: visibility 0.5s ease-in-out,
+                    opacity 0.5s ease-in-out,
+                    height 0.2s ease-in-out;
+    }
+    &_content_hidden{
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+    }
 }
 
+.ficheLogement_collapse{
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
+    margin: 30px auto;
+    width: 95%;
+    &_item{
+        width: 50%;
+    }
+    @media screen and (max-width: 650px){
+        flex-direction: column;
+        gap: 20px;
+        margin: 20px auto;
+        &_item{
+            width: 100%;
+        }    
+    }
+}
