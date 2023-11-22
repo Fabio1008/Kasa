@@ -8,6 +8,7 @@ import Footer from "../../components/footer/Footer";
 import Collapse from '../../components/collapse/Collapse';
 import greyStar from '../../assets/grey_star.png';
 import redStar from '../../assets/red_star.png';
+import Error from '../Error404/error404'
 
 
 export default function FicheLogement() {
@@ -19,9 +20,15 @@ export default function FicheLogement() {
 	
 	useEffect(() => {
 		const DataCurrentFicheLogement = datas.filter(data => data.id === idFicheLogement);
-		setImageSlider(DataCurrentFicheLogement[0].pictures);
+		if (DataCurrentFicheLogement.length !== 0) {
+			setImageSlider(DataCurrentFicheLogement[0].pictures);
+		}
 	}, [idFicheLogement]);
-
+// Vérification de la présence de données pour cet identifiant
+if (dataCurrentFicheLogement.length === 0) {
+	// Aucune donnée trouvée, retourne le composant Error404
+	return <Error/>
+}
 	const name = dataCurrentFicheLogement[0].host.name.split(' '); 
 	const rating = dataCurrentFicheLogement[0].rating;
 	const description  = dataCurrentFicheLogement[0].description;
