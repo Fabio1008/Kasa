@@ -8,14 +8,14 @@ export default function Navbar() {
     return (
         <nav className='nav'>
             <ul className='nav_list'>
-                <li className={currentRoute === '/Kasa/' ? 'nav_list_item_active' : 'nav_list_item'}>
+                <li className={currentRoute === '/' ? 'nav_list_item_active' : 'nav_list_item'}>
                     <Link  to='/'>
-                        <span className='nav_list_link-hiddenMobile'>Accueil</span>  <span className='nav_list_link-hidden'>ACCUEIL</span>
+                        Accueil
                     </Link>
                 </li>
                 <li className={currentRoute === '/about' ? 'nav_list_item_active' : 'nav_list_item'}>
                     <Link  to='/about'>
-                        <span className='nav_list_link-hiddenMobile'>A propos</span> <span className='nav_list_link-hidden'>A PROPOS</span>
+                        A propos                    
                     </Link>
                 </li>
             </ul>
