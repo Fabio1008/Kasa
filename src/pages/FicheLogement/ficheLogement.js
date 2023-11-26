@@ -6,10 +6,10 @@ import Header from "../../components/header/Header";
 import Slider from "../../components/carousel/Carousel"
 import Footer from "../../components/footer/Footer";
 import Collapse from '../../components/collapse/Collapse';
-import greyStar from '../../assets/grey_star.png';
-import redStar from '../../assets/red_star.png';
-import Error from '../Error404/error404'
 
+import Error from '../Error404/error404'
+import Tags from '../../components/tags/tags';
+import Rating from '../../components/rating/rating';
 
 export default function FicheLogement() {
 	
@@ -30,7 +30,7 @@ if (dataCurrentFicheLogement.length === 0) {
 	return <Error/>
 }
 	const name = dataCurrentFicheLogement[0].host.name.split(' '); 
-	const rating = dataCurrentFicheLogement[0].rating;
+
 	const description  = dataCurrentFicheLogement[0].description;
 	const equipments = dataCurrentFicheLogement[0].equipments;
 
@@ -43,14 +43,8 @@ if (dataCurrentFicheLogement.length === 0) {
 					<div className="ficheLogement_content_infos">
 						<h1>{dataCurrentFicheLogement[0].title}</h1>
 						<p>{dataCurrentFicheLogement[0].location}</p>
-						<div>
-							{dataCurrentFicheLogement[0].tags.map((tag, index) => {
-								return (
-									<button key={index}>{tag}</button>
-								)
-							})}
-						</div>
-					</div>
+						<Tags Tags={Tags}/>
+					</div>					
 					<div className="ficheLogement_content_host">
 						<div>
 							<div className='ficheLogement_content_host_name'>
@@ -61,12 +55,7 @@ if (dataCurrentFicheLogement.length === 0) {
 						</div>
 							
 						<div className="ficheLogement_content_host_stars">
-							{[...Array(5)].map((star, index) => {
-								const ratingValue = index + 1;
-								return (
-									<img key={index} src={ratingValue <= rating ? redStar : greyStar} alt="star" />
-								)
-							})}
+							<Rating rating={Rating}/>
 						</div>
 					</div>
 				</div>

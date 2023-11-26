@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom'
 export default function Header() {
 	return (
 		<header className='header'>
-			<h1>
+			<div>
 			<Link to='/'>
 				<img src={Logo} alt="kasa, location d'appartements" />
 				</Link>
-			</h1>
+			</div>
 			<Navbar />
 		</header>
 	)
